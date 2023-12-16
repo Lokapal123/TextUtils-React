@@ -36,14 +36,13 @@ const togglemode = () =>{
     document.body.style.backgroundColor = 'white';
     setDarkmode('Enable Dark Mode');
     showalert("Light Mode Enabled","success");
-    document.title = 'TextUtils - Light Mode';
+
   }
   else{
     setMode('dark');
     document.body.style.backgroundColor = '#042743';
     setDarkmode('Disable Dark Mode');
     showalert("Dark Mode Enabled","success");
-    document.title = 'TextUtils - Dark Mode';
 
   }
 }
@@ -56,9 +55,9 @@ return (
 <Alert alert={alert} />
   <div className="container my-4 mx-9">
     <Routes>
-          <Route exact path="/about" element={<About />}>
+          <Route exact path="/about" element={<About mode={mode}/>}>
           </Route>
-          <Route exact path="/" element={<TextForm heading="Enter your text to analyze" showalert={showalert} mode={mode} />}>
+          <Route exact path="/" element={<TextForm heading="Try TextUtils - WordCount, CharacterCount, Remove ExtraSpace" showalert={showalert} mode={mode} />}>
           </Route>
     </Routes>
   </div>
@@ -68,7 +67,3 @@ return (
 }
 
 export default App;
-
-
-{/* <TextForm heading="Enter your text to analyze" showalert={showalert} mode={mode} /> */}
-{/* <About /> */}
